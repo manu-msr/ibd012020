@@ -3,7 +3,7 @@
 ### Información General
 
 ```
-   Grupo: DABT052019
+   Grupo: DABT012020
 
    L. en C.C. Manuel Soto Romero
    manumsr93@gmail.com
