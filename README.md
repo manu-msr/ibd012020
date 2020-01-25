@@ -3,10 +3,12 @@
 ### Información General
 
 ```
-   Grupo: DABT012020
+   Grupo: CUDAB2CCDMX2001
 
    L. en C.C. Manuel Soto Romero
    manumsr93@gmail.com
+   
+   Slack: beduworspace.slack.com Canal: #cu-da-b2c-cdmx-20-01
 
    Sábados, 9 a 15hrs.
    Colony Spaces Cibeles 06700, Roma Nte., 06700 Ciudad de México, CDMX.
