@@ -8,7 +8,7 @@
 
 ### REQUISITOS
 1. Carpeta de repositorio actualizada
-1. Reto-03 terminado
+1. Ejemplo-04 terminado
 
 ### DESARROLLO
 1. Haz que tu carpeta de trabajo sea `Introduccion-a-Bases-de-Datos/Sesion-02/Proyecto/`
@@ -19,22 +19,24 @@
 
 1. Copiar la carpeta `Datos` creada en el `Ejemplo-04` y moverse a la carpeta `Datos/ml-1m/`
    ```console
-   Proyecto $ cp -a ../Ejemplo-04/Datos .
+   Proyecto $ ???
    Proyecto $ cd Datos/ml-1m
    ml-1m $
    ```
 
 1. Imprime la lista de todos los usuarios con género femenino que dieron una valoración de 5 a la película con título "Deep Blue Sea" e indica cuantos son.
 
-   Lo primero es obtener el id de la película con el título indicado
+   Antes de pasar a ejecutar comandos, toma unos momentos para analizar, entender y planear una solución.
+
+   Seguramente hay más de una forma de obtener la solución, una manera es primero obtener el id de la película con el título indicado
    ```console
-   ml-1m $ grep -a "Deep Blue Sea" movies.csv
-   2722,Deep Blue Sea (1999),Action|Sci-Fi|Thriller
+   ml-1m $ ???
+   ???
    ml-1m $
    ```
-   Con este resultado se obtiene que el id es 2722, ahora se procede a buscar la lista de todos los registros con valoración 5 para esta película
+   Con este resultado se obtiene que el id es ???, ahora se procede a buscar la lista de todos los registros con valoración 5 para esta película
    ```console
-   ml-1m $ grep -a ,2722,5, ratings.csv
+   ml-1m $ ???
    [...]
    4131,2722,5,965352872
    4278,2722,5,965289897
@@ -47,14 +49,14 @@
    5662,2722,5,958777316
    5767,2722,5,959057555
    5965,2722,5,956975467
-   ml-1m $ grep -a ,2722,5, ratings.csv | wc
+   ml-1m $ ???  # Se cuentan cuantos registros son
      31      31     674
-   ml-1m $ grep -a ,2722,5, ratings.csv > ratings-m2722-r5.csv
-   ml-1m $   
+   ml-1m $ ???  # Se guarda el resultado en el archivo ratings-m2722-r5.csv
+   ml-1m $
    ```
    Se obtiene la lista de todos los usuarios en la primera columna y se conoce que son 31, ahora hay que encontrar cuales de ellos tienen género femenino
    ```console
-   ml-1m $ grep -aE "^(36|210|372|582|820|869|880|1069|1125|1601|1676|1764|2079|2138|2886|2907|2909|3202|3483|3626|4131|4278|4428|4504|4801|4893|5103|5229|5662|5767|5965),F" users.csv
+   ml-1m $ ???  # Se realiza la consulta ajustándola hasta obtener el resultado
    210,F,1,10,25801
    372,F,18,4,72227
    1125,F,18,4,53715
@@ -65,9 +67,9 @@
    4278,F,45,7,09094
    4504,F,25,0,65775
    5103,F,35,16,78222
-   ml-1m $ grep -aE "^(36|210|372|582|820|869|880|1069|1125|1601|1676|1764|2079|2138|2886|2907|2909|3202|3483|3626|4131|4278|4428|4504|4801|4893|5103|5229|5662|5767|5965),F" users.csv > users-F-m2722-r5.csv
-   ml-1m $ wc users-F-m2722-r5.csv
-    10  10 179 users-F-m2722-r5.csv
+   ml-1m $ ???  # Se guardan los resultados en el archivo users-F-m2722-r5.csv
+   ml-1m $ ???  # Se cuentan los registros
+    ???
    ml-1m $
    ```
    Recuerda usar el operador __or__ de las expresiones regulares, así como la opción `-E` para usar expresiones regulares extendidas.

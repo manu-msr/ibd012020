@@ -41,13 +41,13 @@
    $ cd Introduccion-a-Bases-de-Datos
    Introduccion-a-Bases-de-Datos $ cd Sesion-01
    Sesion-01 $ cd Reto-03
-   Reto-03 $ mkdir Datos
-   Reto-03 $ cd Datos
-   Datos $ curl -O  http://files.grouplens.org/datasets/movielens/ml-1m.zip
+   Reto-03 $ ???  # Crear la carpeta Datos
+   Reto-03 $ ???  # Cambiarse a la carpeta Datos
+   Datos $ ???  # Descargar el archivo dado por la URL
    % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                   Dload  Upload   Total   Spent    Left  Speed
    100 5778k  100 5778k    0     0   904k      0  0:00:06  0:00:06 --:--:-- 1094k
-   Datos $ unzip ml-1m.zip
+   Datos $ ???  # Descomprimir el archivo descargado. ¿cómo? ¿no se puede?
    Archive:  ml-1m.zip
       creating: ml-1m/
      inflating: ml-1m/movies.dat        
@@ -56,14 +56,10 @@
      inflating: ml-1m/users.dat         
    Datos $ ls
    ml-1m  ml-1m.zip
-   Datos $ cp -a ml-1m ml-1m.1
+   Datos $ ???  # Crear el respaldo de la carpeta obtenida
    Datos $ ls
    ml-1m  ml-1m.1  ml-1m.zip
-   Datos $ rm ml-1m.zip
+   Datos $ ???  # Eliminando el archivo zip
    Datos $ ls
    ml-1m  ml-1m.1
    ```
-
-Tiempo estimado 10min, pero se podría ampliar hasta unos 20 min.
-
-__Sugerencia:__ El comando `cp` necesita la opción `-a` para poder copiar carpetas, sin embargo es algo que no se ha mencionado hasta el momento, así como el comando `unzip` para descomprimir un archivo zip desde consola, por lo que se sugiere impulsar a los alumnos a realizar investigación y que ellos encuentren la solución.

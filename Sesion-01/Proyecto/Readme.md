@@ -23,20 +23,25 @@ En el Reto-03 se preparó una carpeta de trabajo llamada `Datos` con todos los a
    Proyecto $
    ```
 
-1. Se creará el archivo o script `datos-ml-1m.sh` usando el editor para terminal llamado `nano nombre-de-archivo`
+1. Se creará el archivo o script `datos-ml-1m.sh` usando el editor para terminal llamado `nano`
    ```console
-   Proyecto $ nano datos-ml-1m.sh
+   Proyecto $ ???
    ```
-   Este comando abre el editor `nano` y ahora procedemos a agregar cada comando ejecutado en el Reto-03, un comando por línea, resultando algo similar a lo siguiente:
-   ![Editor nano con los comando del Reto-03](assets/nano-01.png)
+   Este comando abre el editor `nano` y ahora procedemos a agregar cada comando ejecutado en el Reto-03 a partir desde donde se crea la carpeta `Datos`, un comando por línea, resultando algo similar a lo siguiente:
+   ```
+   ???
+   ???
+   ???
+   ...
+   ```
 
    Para __guardar__ el contenido recuerda presionar las teclas `Control+O` lo que mostrará el nombre del archivo a guardar y si no hay cambio alguno se presiona `Enter` y el archivo estará guardado.
 
    Para __salir__ del editor recuerda presionar las teclas `Control+X`.
 
-1. Para ejecutar el script se hace uso del comando `bash nombre-de-script`
+1. Para ejecutar el script se hace uso del comando `bash`
    ```console
-   Proyecto $ bash datos-ml-1m.sh
+   Proyecto $ ???
      % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                     Dload  Upload   Total   Spent    Left  Speed
    100 5778k  100 5778k    0     0   134k      0  0:00:43  0:00:43 --:--:--  166k
