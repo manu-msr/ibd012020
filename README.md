@@ -26,8 +26,8 @@
 |-------|--------------------------------------------------|----------|
 | 01/02 | Introducción a la terminal de comandos           | [Sesión 1](Sesion-01/) |
 | 01/02 | Preparación y consulta de datos desde la terminal| [Sesión 2](Sesion-02/) |
-| 08/02 | Fundamentos MySQL                                |          |
-| 08/02 | Consultas de datos y relaciones en SQL           |          |
+| 08/02 | Fundamentos MySQL                                | [Sesión 2](Sesion-03/) |
+| 08/02 | Consultas de datos y relaciones en SQL           | [Sesión 2](Sesion-04/) |
 | 15/02 | Fundamentos de MongoDB                           |          |
 | 15/02 | Consultas de datos no relacionales               |          |
 | 22/02 | Fundamentos de bases de datos en la nube         |          |
