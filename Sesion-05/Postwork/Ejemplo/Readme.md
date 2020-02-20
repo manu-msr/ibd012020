@@ -1,7 +1,6 @@
 [`Fundamentos de Base de Datos`](../../Readme.md) > [`Sesión 05`](../Readme.md) > Postwork
 ## Fundamentos de MongoDB e importación de datos
-
-*DATOS DE EJEMPLO*
+### Plantilla Postwork
 
 #### (1) Base de Datos
 
