@@ -28,7 +28,7 @@
 | 01/02 | Preparación y consulta de datos desde la terminal| [Sesión 2](Sesion-02/Readme.md) |
 | 08/02 | Fundamentos MySQL                                | [Sesión 3](Sesion-03/Readme.md) |
 | 08/02 | Consultas de datos y relaciones en SQL           | [Sesión 4](Sesion-04/Readme.md) |
-| 15/02 | Fundamentos de MongoDB                           | [Sesión 5](Sesion-05/Readme.md), [Ejemplo Postwork](Sesion-05/Postwork/Ejemplo/Readme.md)|
+| 15/02 | Fundamentos de MongoDB                           | [Sesión 5](Sesion-05/Readme.md), [Plantilla Postwork](Sesion-05/Postwork/Ejemplo/Readme.md)|
 | 15/02 | Consultas de datos no relacionales               | [Sesión 6](Sesion-06/Readme.md) |
 | 22/02 | Fundamentos de bases de datos en la nube         |          |
 | 22/02 | Consultas de datos en la nube                    |          |
