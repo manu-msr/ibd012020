@@ -4,15 +4,24 @@
 
 #### (1) Base de Datos
 
-Para consultar la base de datos, usar los siguientes datos:
+*Aquí pongan el nombre de su base de datos y la o las colecciones que crearon.*
 
 ```
 Base de datos: ManuelSoto
 Colección:     Pokemon
-
 ```
 
-#### (2) Consultas
+#### (2) Estructura del archivo CSV
+
+*Aquí pongan el header del archivo CSV que usaron como dataset. La idea es que contrasten los documentos cargados en MongoDB con este header para asegurar que la carga fue correcta.*
+
+```
+idPokemon,Nombre,Tipo
+```
+
+#### (3) Consultas
+
+*Aquí pongan las consultas que pensaron y como primera línea pongan con qué la van a ejecutar, es decir, un filtro, proyección, ordenamiento, etc.*
 
 1. ¿Pregunta 1?
 
@@ -39,19 +48,4 @@ Colección:     Pokemon
 ```json
 // PROJECTION
 {campo: 1}
-```
-
-3. ¿Pregunta 4?
-
-*Solución:*
-
-```json
-// AGREGATION
-
-// Primera capa
-{campo: "Valor"}
-
-// Segunda capa
-...
-
 ```
