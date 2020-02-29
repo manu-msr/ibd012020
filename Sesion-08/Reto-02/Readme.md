@@ -21,20 +21,20 @@ Nuevamente es importante comprender la estructura de los datos para poder realiz
    __$addField__:
    ```json
    {
-       ???
+       monto: {$toDecimal: "$MONTO_DE_CONTRATO"}
    }
    ```
 
    Se orden con __$sort__:
    ```json
    {
-     ???
+     monto: -1
    }   
    ```
 
    Y se limita a 10 resultados con __$limit__:
    ```json
-   ???
+   10
    ```
 
    El resultado es el siguiente:
@@ -44,7 +44,7 @@ Nuevamente es importante comprender la estructura de los datos para poder realiz
 
     Se hace uso de la barra de consultas con __filter__:
     ```json
-    {???}
+    {TIPO_PROCEDIMIENTO: "ADJUDICACION DIRECTA"}
     ```
     Es muy importante escribir los nombres de los atributos usando mayúsculas y minúsculas según sea el caso.
     ![Resultado](assets/resultados-02.png)

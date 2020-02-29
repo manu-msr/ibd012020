@@ -19,42 +19,47 @@ Ahora se realizarán consultas para responder algunas preguntas del conjunto de 
 
 2. Importa los datos generados en el Ejemplo-01 de la Sesion-05
 
-3. Obtener la lista de ciclo estaciones y ordenarlas descendentemente con base en la cantidad de usuarios.
+3. Obtener la lista de ciclo estaciones y ordenarlas descendentemente en base a la cantidad de usuarios.
 
    La solución se obtiene usando agregración con las siguientes etapas:
 
    __group__:
    ```json
    {
-       ???
+     _id: "$Ciclo_Estacion_Retiro",
+     usuariosRetiro: {
+       $sum: 1
+     },
    }
    ```
 
    __sort__:
    ```json
    {
-     ???
+     usuariosRetiro: -1
    }
    ```
 
    Obteniendo el resultado siguiente:
    ![Resultados](assets/resultados-01.png)
 
-1. Obtener La cantidad de retiros realizados por edades de usuario y ordenar las edades de usuarios de mayor a menor con base en la cantidad de retiros.
+1. Obtener La cantidad de retiros realizados por edades de usuario y ordenar las edades de usuarios de mayor a menor en base a la cantidad de retiros.
 
    La solución se obtiene usando agregración con las siguientes etapas:
 
    __group__:
    ```json
    {
-       ???
-   }
-   ```
+     _id: "$Edad_Usuario",
+     edadesRetiro: {
+       $sum: 1
+     },
+   }   ```
 
    __sort__:
    ```json
    {
-      ???
+     edadesRetiro: -1
    }
    ```
 
@@ -69,14 +74,17 @@ Ahora se realizarán consultas para responder algunas preguntas del conjunto de 
    __match__:
    ```json
    {
-     ???
+     Edad_Usuario: "28"
    }
    ```
 
    __sort__:
    ```json
    {
-       ???
+     _id: "$Genero_Usuario",
+     generos: {
+       $sum: 1
+     }
    }
    ```
 

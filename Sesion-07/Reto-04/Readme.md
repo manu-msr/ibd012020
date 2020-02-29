@@ -30,3 +30,5 @@
    Importar el archivo nuevamente con __MongoDB Compass__, el resultado debe ser similar al siguiente:
 
    ![Contratos Veracruz importado](assets/contratos-veracruz-importado.png)
+
+__Nota:__ La carpeta `json.por-si-acaso/` contiene el archivo ya modificado para ser importado desde MongoDB y puede ser usado en caso de que el alumno no logre ajustar el archivos correctamente, sin embargo este archivo no está en el repo de alumnos, así que hay que pasarlo de forma directa a quien lo necesite.

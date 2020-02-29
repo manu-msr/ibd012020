@@ -13,15 +13,15 @@
 1. Imprimir la lista de películas cuya temática esté relacionada con _amor_ (love) de la colección `movies`.
 
    La primer aproximación es usar el siguiente filtro:
-   ```
-   ???
+   ```json
+   {titulo: /love/}
    ```
    El resultado es:
    ![Películas de amor](assets/regex-01.png)
 
    Se obtienen 74 documentos que incluyen el texto `love` en su título, sin embargo para encontrar todas las películas con la temática de amor, habría que incluir el texto `loving` (amando), entonces el filtro quedará como:
-   ```
-   ???
+   ```json
+   {titulo: /love|loving/i}
    ```
    El resultado obtenido es el siguiente:
    ![Películas de amor](assets/regex-02.png)
@@ -34,8 +34,8 @@
 1. Imprime la lista de todas las películas cuyo género sea horror, misterio o suspenso e indica cuantas son.
 
    Una forma de solucionarlo es hacer uso de expresiones regulares junto con el operador `or` quedando el filtro como el siguiente:
-   ```
-   ???
+   ```js
+   {genres: /Horror|Mystery|Thriller/}
    ```
    El resultado obtenido es:
    ![Películas de amor](assets/regex-03.png)
@@ -45,8 +45,8 @@
 1. Finalmente se desea imprimir la lista de todas la películas cuyo género sea comedia, drama o romance y cuya temática sea de amor.
 
    La solución es una combinación de los dos casos anteriores, así que tendría que ocupar un operador `AND` en algún momento:
-   ```
-   ???
+   ```json
+   {titulo: /love|loving/i, genres:/Comedy|Drama|Romance/}
    ```
    Dando el resultado:
    ![Películas de acción de corazón](assets/regex-04.png)

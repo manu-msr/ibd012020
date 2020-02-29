@@ -19,7 +19,7 @@ Se continúan creando consultas similares a las creadas en SQL pero aplicando la
 
    En la barra de `FILTER` se coloca la siguiente expresión:
    ```json
-   ???
+   {gen: "M"}
    ```
    Se obtiene que la cantidad de usuarios es 4331
 
@@ -27,7 +27,7 @@ Se continúan creando consultas similares a las creadas en SQL pero aplicando la
 
    Del archivo `README` se obtiene que para artista y escritor los códigos de ocupación son 2 y 20 respectivamente, así que el filtro estaría usando los operadores `$in` y `$ne` como sigue:
    ```json
-   ???
+   {edad: {$ne: "1"}, ocup: {$in: ["2", "20"]} }
    ```
    Se obtiene un total de 545 usuarios.
 
@@ -35,7 +35,7 @@ Se continúan creando consultas similares a las creadas en SQL pero aplicando la
 
    Para realizar una operación `AND` en la barrá de `FILTER` se pueden colocar más de dos condiciones separadas por coma, así que la consulta queda como sigue:
    ```json
-   ???
+   {gen:"F", edad:"1"}
    ```
    Por lo que se cuentan con 78 usuarios que cumplen ambas condiciones.
 
@@ -43,7 +43,7 @@ Se continúan creando consultas similares a las creadas en SQL pero aplicando la
 
    Primeramente del archivo `README` se obtiene que para _Estudiante_ y _Desempleado_ los códigos de ocupación son 0, 10 y 19 entonces se puede hacer uso del operador `$nin` (NOT IN) y el operador `AND` haciendo uso de la coma, quedando el filtro siguiente:
    ```json
-   ???
+   {ocup {$nin: ["0", "10", "19"]}, edad: "1"}
    ```
    Por lo que se tienen sólo 20 usuarios que cumplen estas condiciones.   
 
@@ -51,7 +51,7 @@ Se continúan creando consultas similares a las creadas en SQL pero aplicando la
 
    Para resolver este reto se debe hacer uso de dos conceptos, el uso de expresiones regulares en MongoDB y conocer que los paréntesis en las expresiones regulares necesitan se precedidos por una diagonal invertida para que sean considerados como tal, así que el filtro para esta consulta es:
    ```json
-   ???
+   {titulo: /\(2000\)/}
    ```
    Así que se obtiene que sólo 120 películas se estrenaron en el año 2000.
 

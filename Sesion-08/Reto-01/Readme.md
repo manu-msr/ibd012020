@@ -15,7 +15,7 @@
 
     En __Compass__ haciendo uso de la barra de filtrado se escribe el filtro:
     ```json
-    { ??? }
+    {number_of_reviews: {$gte: 50}, "review_scores.review_scores_rating": {$gte: 80}, amenities: {$in: [/Ethernet/]}, "address.country_code": "BR" }
     ```
     __Nota:__ Revisar la estructura de los documentos para poder armar la consulta.
 
@@ -29,28 +29,38 @@
    __$match__:
    ```json
    {
-     ???
+     property_type: "House",
+     "address.country_code": "BR",
+     bedrooms: {$gte: 1}
    }
    ```
 
    __$addFields__:
    ```json
    {
-     ???
+     CostoRecamara: {$divide: ["$price", "$bedrooms"]}
    }
    ```
 
    __$group__:
    ```json
    {
-       ???
+     _id: null,
+     Recamaras: {
+       $sum: 1
+     },
+     Total: {
+       $sum: "$CostoRecamara"
+     }
    }
    ```
 
    __$addFields__:
    ```json
    {
-       ???
+       CostoPromedio: {
+       $divide: ["$Total", "$Recamaras"]
+     }
    }
    ```
 

@@ -21,21 +21,21 @@
 
 1. Copiar la carpeta `Datos` creada en el `Sesion-03/Ejemplo-03/` y moverse a la carpeta `Datos/ml-1m/`
    ```console
-   Reto-03 $ ???
+   Reto-03 $ cp -a ../Ejemplo-03/Datos .
    Reto-03 $ cd Datos/ml-1m
    ml-1m $
    ```
 
 1. Conectarse al Servidor MariaDB con los datos que has usado en el _Ejemplo-01_ y además agregando la opción `--local-infile`.
    ```console
-   ml-1m $ mycli -h ec2-54-213-193-78.us-west-2.compute.amazonaws.com -u root -p root -P 3306 ???
+   ml-1m $ mycli -h ec2-54-213-193-78.us-west-2.compute.amazonaws.com -u root -p root -P 3306 --local-infile true
    mariadb 10.4.10-MariaDB-1:10.4.10+maria~bionic
    mycli 1.20.1
    Chat: https://gitter.im/dbcli/mycli
    Mail: https://groups.google.com/forum/#!forum/mycli-users
    Home: http://mycli.net
    Thanks to the contributor - Abirami P
-   (none)> ???
+   (none)> USE Minombre;
    You are now connected to database "MiNombre" as user "root"
    Time: 0.096s
    MiNombre>
@@ -48,10 +48,10 @@
 
    No olvidar agregar la opción `FIELDS TERMINATED BY`:
    ```sql
-   MiNombre> ???
+   MiNombre> LOAD DATA LOCAL INFILE "movies.csv" INTO TABLE movies FIELDS TERMINATED BY ",";
    Query OK, 3883 rows affected
    Time: 6.410s
-   MiNombre> ???
+   MiNombre> SELECT * FROM movies LIMIT 10;
    +----+------------------------------------+------------------------------+
    | id | title                              | generos                      |
    +----+------------------------------------+------------------------------+
@@ -79,14 +79,27 @@
 
    No olvidar agregar la opción `FIELDS TERMINATED BY`:
    ```sql
-   MiNombre> ???
+   MiNombre> LOAD DATA LOCAL INFILE "ratings.csv" INTO TABLE ratings FIELDS TERMINATED BY ",";
    Query OK, 1000209 rows affected
    Time: 678.410s
-   MiNombre> ???
-   ???
-   ???
-   ???
-   ...
+   MiNombre> SELECT * FROM ratings LIMIT 10;
+   +--------+---------+--------+------------+
+   | userid | movieid | rating | time_stamp |
+   +--------+---------+--------+------------+
+   | 1      | 1193    | 5      | 978300760  |
+   | 1      | 661     | 3      | 978302109  |
+   | 1      | 914     | 3      | 978301968  |
+   | 1      | 3408    | 4      | 978300275  |
+   | 1      | 2355    | 5      | 978824291  |
+   | 1      | 1197    | 3      | 978302268  |
+   | 1      | 1287    | 5      | 978302039  |
+   | 1      | 2804    | 5      | 978300719  |
+   | 1      | 594     | 4      | 978302268  |
+   | 1      | 919     | 4      | 978301368  |
+   +--------+---------+--------+------------+
+
+   10 rows in set
+   Time: 0.172s
    MiNombre>  
    ```
    Por lo que podemos corroborar que cuando menos los primeros 10 registros tienen información correcta.

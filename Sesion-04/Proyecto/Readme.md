@@ -15,7 +15,7 @@
 
    La solución necesita hacer uso de la instrucción `JOIN`, así como relacionar las tablas `movies` y `ratings`, ya que para encontrar todas las películas de acción se hace uso de la tabla `movies` y para encontrar todas las que tuvieron valoración (rating) de 5 se necesita la tabla `ratings`:
    ```sql
-   MiNombre> ???
+   MiNombre> SELECT DISTINCT id, title FROM ratings LEFT JOIN movies ON movieid=movies.id WHERE genres LIKE "Action%" AND rating=5 ORDER BY movieid;
    +------+---------------------------------------------------------------------+
    | id   | title                                                               |
    +------+---------------------------------------------------------------------+
@@ -81,7 +81,7 @@
 
    Entonces modifica la consulta para que ahora muestre las 10 películas con mayor número de valoraciones.
    ```sql
-   MiNombre> ???
+   MiNombre> SELECT id, title, COUNT(rating) AS total_rating FROM movies LEFT JOIN ratings ON movies.id=movieid WHERE genres LIKE "%Horror%" OR genres LIKE "%Mystery%" OR genres LIKE "%Thriller%" GROUP BY movies.id ORDER BY total_rating DESC LIMIT 10;
    +------+-----------------------------------+--------------+
    | id   | title                             | total_rating |
    +------+-----------------------------------+--------------+
@@ -107,7 +107,7 @@
 
    Se inicia con la tabla `movies` para poder obtener el `id` de la película:
    ```sql
-   MiNombre> ???
+   MiNombre> SELECT * FROM movies WHERE title LIKE "American Beauty%";
    +------+------------------------+--------------+
    | id   | title                  | genres       |
    +------+------------------------+--------------+
@@ -121,7 +121,7 @@
 
    Ahora se relaciona con la tabla `ratings` para obtener todas las valoraciones de este película:
    ```sql
-   MiNombre> SELECT id, title, rating ???
+   MiNombre> SELECT id, title, rating FROM movies JOIN ratings ON id=movieid WHERE title LIKE "American Beauty%";
    +------+------------------------+--------+
    | id   | title                  | rating |
    +------+------------------------+--------+
@@ -151,21 +151,22 @@
    ```
    Es buena idea sólo mostrar los campos `id`, `title` y `rating` de esta forma ya se tienen las 3428 valoraciones, ahora hay que agruparlas por valor contarlas:
    ```sql
-   MiNombre> ???
+   MiNombre> SELECT id, title, rating, COUNT(rating) FROM movies JOIN ratings ON id=movieid WHERE title LIKE "American Beauty%" GROUP BY rating;
    +------+------------------------+--------+---------------+
    | id   | title                  | rating | COUNT(rating) |
    +------+------------------------+--------+---------------+
-   ???
-   ???
-   ???
-   ...
+   | 2858 | American Beauty (1999) | 1      | 83            |
+   | 2858 | American Beauty (1999) | 2      | 134           |
+   | 2858 | American Beauty (1999) | 3      | 358           |
+   | 2858 | American Beauty (1999) | 4      | 890           |
+   | 2858 | American Beauty (1999) | 5      | 1963          |
    +------+------------------------+--------+---------------+
 
    5 rows in set
    Time: 1.140s
    MiNombre>  
    ```
-   ¿Cuales sería las conclusiones de estos resultados?
+   Así que la conclusión es que esta película además de ser la que obtuvo más valoraciones, también resulta estar muy bien valorada.
 
    Entonces surge una pregunta más ¿cuál sería la película mejor valorada?, ya que un número alto de valoraciones no necesariamente indica que la película esté bien valorada. (opcional)
 
@@ -173,7 +174,7 @@
 
    Se puede partir de la tabla de `ratings` para obtener el `userid` de cada valoración y luego relacionarla con la tabla `users` para obtener el género
    ```sql
-   MiNombre> ???
+   MiNombre> SELECT id, genero FROM ratings LEFT JOIN users ON userid=id LIMIT 10;
    +----+--------+
    | id | genero |
    +----+--------+
@@ -195,12 +196,12 @@
    ```
    Ahora hay que contar todas las `F` y todas las `M`:
    ```sql
-   MiNombre> ???
+   MiNombre> SELECT genero, COUNT(genero) FROM ratings LEFT JOIN users ON userid=id GROUP BY genero;
    +--------+---------------+
    | genero | COUNT(genero) |
    +--------+---------------+
-   ???
-   ???
+   | F      | 246440        |
+   | M      | 753769        |
    +--------+---------------+
    2 rows in set
    Time: 0.095s

@@ -17,14 +17,14 @@ Se deberá de crear colecciones e importar los datos de los archivos `movies-h.c
 
 1. Importar datos a la colección `movies` desde el archivo `Datos/movies-h.csv`
 
-   Para importar documentos, se usa la opción del menú ??? que abre un diálogo para seleccionar del tipo de archivo CSV y el archivo mismo.
+   Para importar documentos, se usa la opción del menú `Collection > Import Data` que abre un diálogo para seleccionar del tipo de archivo CSV y el archivo mismo.
    ![Importando datos csv](assets/importando-datos.png)
 
    Validar que cada campo tenga nombre y que estén todos los campos, además valida la cantidad de documentos, que en este caso debería de ser 3883.
 
 1. Determinar cual es el registro extra en la colección `movies`, para ello se da click en el botón `OPTION` y en la línea que dice `SORT` se escribe lo siguiente:
    ```json
-   ???
+   {id:1}
    ```
    Esto indica que los resultados se ordenen en base al campo `id` de forma ascendente, dar click en el botón `FIND` o presionar la tecla `ENTER` para actualizar la lista de registros.
    ![Documentos de movies ordenados](assets/documentos-movies-ordenados.png)
@@ -40,7 +40,7 @@ Se deberá de crear colecciones e importar los datos de los archivos `movies-h.c
 
 1. Importar datos a la colección `ratings` desde el archivo `Datos/ratings-h.csv`
 
-   Para importar usar la opción del menú ??? que abre un diálogo para seleccionar del tipo de archivo CSV y el archivo mismo.
+   Para importar usar la opción del menú `Collection > Import Data` que abre un diálogo para seleccionar del tipo de archivo CSV y el archivo mismo.
 
    Es posible que al importar se obtenga un mensaje de error de `timeout`, así que se procede a dar click en el botón `OPTIONS` y se modifica el valor de `MAXTIMEMS` a 120000, se elimina la colección, se crea nuevamente y se realiza la importación de datos de nuevo.
 
@@ -50,7 +50,7 @@ Se deberá de crear colecciones e importar los datos de los archivos `movies-h.c
 
 1. Determinar cual es el registro extra en la colección `ratings`, para ello se da click en el botón `OPTION` y en la línea que dice `SORT` se escribe lo siguiente:
    ```json
-   ???
+   {userid:1}
    ```
    Esto indica que los resultados se ordenen en base al campo `userid` de forma ascendente, dar click en el botón `FIND` o presionar la tecla `ENTER` para actualizar la lista de registros.
 

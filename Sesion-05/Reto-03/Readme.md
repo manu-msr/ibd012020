@@ -34,7 +34,9 @@ A continuación se realizaran algunas operaciones de agregar, modificar y elimin
      genres:"Fantasy|Sci-Fi"
    }
    {
-     ???
+     id:"4001",
+     titulo:"Glass (2019)",
+     genres:"Drama|Fantasy"
    }
    ```
    Ahora ir a __MongoDB Compass__ y agregar ambos documentos:
@@ -45,7 +47,7 @@ A continuación se realizaran algunas operaciones de agregar, modificar y elimin
 
    Para poder observar nuestros documentos en la lista hay que realizar un filtro
    ```json
-   ???
+   {id: {$in: ["4000", "4001"]}}
    ```
 
    ![Documentos en la colección](assets/documentos-en-coleccion.png)

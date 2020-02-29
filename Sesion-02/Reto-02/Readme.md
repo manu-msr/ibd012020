@@ -22,14 +22,14 @@ En el Ejemplo-02 se continuó agregando archivos a la carpeta `Datos` en formato
 
 1. Copiar la carpeta `Datos` creada en el `Ejemplo-02` y moverse a la carpeta `Datos/ml-1m/`
    ```console
-   Reto-02 $ ???
+   Reto-02 $ cp -a ../Ejemplo-02/Datos .
    Reto-02 $ cd Datos/ml-1m
    ml-1m $
    ```
 
 1. Imprimir todos los usuarios cuyo genero es femenino:
    ```console
-   ml-1m $ ???
+   ml-1m $ grep F users.csv
    [...]
    6025,F,25,1,32607
    6029,F,25,1,23185
@@ -46,7 +46,7 @@ En el Ejemplo-02 se continuó agregando archivos a la carpeta `Datos` en formato
 
    Para seleccionar los usuarios que son menores de edad se hace uso del archivo `README` y se encuentra que en el campo `edad` un valor de `1` representa a todos los usuarios menores de edad, así que el comando sería:
    ```console
-   ml-1m $ ???
+   ml-1m $ grep F users.csv | grep 1
    [...]
    6017,F,35,7,21117
    6025,F,25,1,32607
@@ -61,7 +61,7 @@ En el Ejemplo-02 se continuó agregando archivos a la carpeta `Datos` en formato
    ```
    Se observa que el símbolo 1 aparece en más lugares de una línea, además de la columna 3 que es donde se necesita, por lo que será bueno ajustar el criterio:
    ```console
-   ml-1m $ ???
+   ml-1m $ grep F users.csv | grep ,.*,1,.*,
    [...]
    5459,F,1,10,99016
    5514,F,1,10,76501
@@ -84,7 +84,7 @@ En el Ejemplo-02 se continuó agregando archivos a la carpeta `Datos` en formato
    Primero se hace una búsqueda en el archivo `README` para obtener el código correspondiente a la actividad Estudiante de K12 y es código es el 10, así que el comando queda como:
 
    ```console
-   ml-1m $ ???
+   ml-1m $ grep F users.csv | grep ,.*,1,.*, | grep ,10,
    [...]
    5063,F,1,10,22801
    5114,F,1,10,22932
@@ -102,7 +102,7 @@ En el Ejemplo-02 se continuó agregando archivos a la carpeta `Datos` en formato
 
 1. Ahora se desea almacenar la lista de los usuarios obtenidos en el punto anterior en el archivo `users-gF-e1-o10.csv`
    ```console
-   ml-1m $ ???
+   ml-1m $ grep F users.csv | grep ,.*,1,.*, | grep ,10, > users-gF-e1-o10.csv
    ml-1m $ head users-gF-e1-o10.csv
    1,F,1,10,48067
    51,F,1,10,10562
@@ -119,7 +119,7 @@ En el Ejemplo-02 se continuó agregando archivos a la carpeta `Datos` en formato
 
 1. Y para obtener el total de registros se realiza con:
    ```console
-   ml-1m $ ???
+   ml-1m $ wc users-gF-e1-o10.csv
      63   63 1114 users-gF-e1-o10.csv
    ml-1m $
    ```

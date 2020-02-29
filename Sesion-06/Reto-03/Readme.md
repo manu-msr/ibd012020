@@ -16,14 +16,21 @@
 
    Primero se aplica una agregación con `group` en el campo `edad` para agrupar y contar los documentos en la colección `users`, el código sería el siguiente:
    ```
-   ???
+   {
+     _id: "$edad",
+     total_edades: {
+       $sum: 1
+     }
+   }
    ```
    El resultado obtenido es:
    ![Distrubución de edades](assets/edades-01.png)
 
-   Después se usa otra agregación con `sort` para ordenar de mayor a menor usando el código:
+   Después se usa otra agregación con `sort` para ordenar de mayor a menor usando l código:
    ```
-   ???
+   {
+     total_edades: -1
+   }
    ```
    El resultado obtenido es:
    ![Distribución edades ordenada](assets/edades-02.png)

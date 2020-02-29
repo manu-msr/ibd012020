@@ -16,7 +16,7 @@
 
 1. La primera consulta consiste en imprimir la lista de los usuarios con genero masculino e indicar cuantos son:
    ```sql
-   MiNombre> ???
+   MiNombre> SELECT * FROM users WHERE genero="M" LIMIT 10;
    +----+--------+------+------+-------+
    | id | genero | edad | ocup | cp    |
    +----+--------+------+------+-------+
@@ -36,9 +36,9 @@
    Time: 0.093s
    MiNombre>  
    ```
-   Se revisa que al menos los primeros diez resultados tengan el valor de `M` en el campo de `genero` y entonces se cuentan:
+   Se revisa que al menos los primeros diez resultado tengan el valor de `M` en el campo de `genero` y entonces se cuentan:
    ```sql
-   MiNombre> ???
+   MiNombre> SELECT COUNT(*) FROM users WHERE genero="M";
    +----------+
    | COUNT(*) |
    +----------+
@@ -52,21 +52,31 @@
 
 1. Imprimir la lista de todos los usuarios que son mayor de edad y que su ocupación sea artista o escritor e indicar cuantos son.
 
-   Para resolver esta consulta se tiene que buscar cuales son los códigos para artista y escritor en el archivo `README` obteniendo `???` y `???`, así ya se puede crear la consulta:
+   Para resolver esta consulta se tiene que buscar cuales son los códigos para artista y escritor en el archivo `README` obteniendo `2` y `20`, así ya se puede crear la consulta:
    ```sql
-   MiNombre> ???
-   ???
-   ???
-   ???
-   ...
+   MiNombre> SELECT * FROM users WHERE edad<>1 AND ocup IN (2, 20) LIMIT 10;
+   +-----+--------+------+------+-------+
+   | id  | genero | edad | ocup | cp    |
+   +-----+--------+------+------+-------+
+   | 5   | M      | 25   | 20   | 55455 |
+   | 50  | F      | 25   | 2    | 98133 |
+   | 56  | M      | 35   | 20   | 60440 |
+   | 58  | M      | 25   | 2    | 30303 |
+   | 83  | F      | 25   | 2    | 94609 |
+   | 110 | M      | 25   | 2    | 90803 |
+   | 114 | F      | 25   | 2    | 83712 |
+   | 136 | M      | 18   | 2    | 21202 |
+   | 138 | M      | 18   | 20   | 22203 |
+   | 139 | F      | 25   | 20   | 45409 |
+   +-----+--------+------+------+-------+
 
    10 rows in set
    Time: 0.091s
    MiNombre>  
    ```
-   Se observa que la edad nunca tiene que ser `???` y la ocupación sólo es `???` y `???`. Ahora se realiza la cuenta con:
+   Se observa que la edad nunca tiene que ser `1` y la ocupación sólo es `2` y `20`. Ahora se realiza la cuenta con:
    ```sql
-   MiNombre> ???
+   MiNombre> SELECT COUNT(*) FROM users WHERE edad<>1 AND ocup IN (2, 20);
    +----------+
    | COUNT(*) |
    +----------+
@@ -80,9 +90,9 @@
 
 1. Imprimir la lista de películas que fueron estrenadas en el año 2000 e indicar cuantas son.
 
-   Para resolver esta consulta se hará uso de la tabla `???` y de la instrucción `LIKE` usando la consulta siguiente:
+   Para resolver esta consulta se hará uso de la tabla `movies` y de la instrucción `LIKE` usando la consulta siguiente:
    ```sql
-   MiNombre> ???
+   MiNombre> SELECT * FROM movies WHERE title LIKE '%(2000)' LIMIT 10;             
    +------+-------------------------+-------------------------+
    | id   | title                   | genres                  |
    +------+-------------------------+-------------------------+
@@ -106,7 +116,7 @@
 
    La cantidad de registros se obtiene con:
    ```sql
-   MiNombre> ???
+   MiNombre> SELECT COUNT(*) FROM movies WHERE title LIKE '%(2000)';
    +----------+
    | COUNT(*) |
    +----------+
@@ -122,7 +132,7 @@
 
    La solución se obtiene al combinar la instrucción `LIKE` con el operador `OR` resultando la consulta siguiente:
    ```sql
-   MiNombre> ???
+   MiNombre> SELECT * FROM movies WHERE genres LIKE "%Horror%" OR genres LIKE "%Mystery%" OR genres LIKE "%Thriller%" LIMIT 10;
    +----+------------------------------------+---------------------------+
    | id | title                              | genres                    |
    +----+------------------------------------+---------------------------+
@@ -144,7 +154,7 @@
    ```
    Se comprueba que los resultados incluyen los géneros solicitados, entonces se obtiene el número de registros:
    ```sql
-   MiNombre> ???
+   MiNombre> SELECT COUNT(*) FROM movies WHERE genres LIKE "%Horror%" OR genres LIKE "%Mystery%" OR genres LIKE "%Thriller%";
    +----------+
    | COUNT(*) |
    +----------+

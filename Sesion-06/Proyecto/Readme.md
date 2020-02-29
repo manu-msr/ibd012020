@@ -17,9 +17,9 @@
    Lo primero es usar la colección __ratings__ para agrupar y contar el número de valoraciones por cada película usando una agregación `group` con:
    ```
    {
-     _id: "???",
+     _id: "$movieid",
      num_ratings: {
-       ???
+       $sum: 1
      }
    }
    ```
@@ -33,9 +33,9 @@
    Con el resultado anterior se tiene la lista de las 10 películas con más número de valoraciones, ahora sólo falta agregar el título haciendo uso de la agregación `lookup` con los siguiente parámetros:
    ```
    {
-     from: "???",
-     localField: "???",
-     foreignField: "???",
+     from: "movies",
+     localField: "_id",
+     foreignField: "id",
      as: "movie"
    }
    ```
@@ -45,9 +45,9 @@
    Ahora ya se tienen todos los datos de cada una de las 10 películas, pero si sólo se requiere del `_id`, `titulo` y `num_ratings` se puede usar otra etapa con `project` con la siguiente configuración:
    ```
    {
-     _id: ???,
-     titulo: ???,
-     num_ratings: ???
+     _id: 1,
+     titulo: {$arrayElemAt: ["$movie.titulo", 0]},
+     num_ratings: "$num_ratings"
    }
    ```
    El resultado es el siguiente:
@@ -65,50 +65,53 @@
    La solución se puede obtener de varias formas, pero se puede comenzar con la colección __movies__ para encontrar el `id` de la película con título "Deep Blue Sea" usando agregaciones con una etapa `match`:
    ```
    {
-     titulo: ???
+     titulo: /Deep Blue Sea/
    }
    ```
    Después se obtiene la lista de todas las valoraciones (ratings) que corresponden a esta película usando otra etapa con `lookup`:
    ```
    {
-     from: ???,
-     localField: ???,
-     foreignField: ???,
-     as: ???
+     from: "ratings",
+     localField: "id",
+     foreignField: "movieid",
+     as: "ratings"
    }
    ```
    El resultado crea el campo `ratings` que es un arreglo con todas las valoraciones realizadas para esta película, pero se desea que crear un documento nuevo por cada elemento en el array, así que se hace uso de una etapa con `unwind` con:
    ```
    {
-     path: ???
+     path: "$ratings"
    }
    ```
    Así que ahora usa otra etapa con `match` para seleccionar sólo los documentos cuya valoración tiene un valor de 5:
    ```
    {
-     ???
+     "ratings.ratings": "5"
    }
    ```
    Ahora se necesita la información del género que está en la colección __users__, entonces se usa otra etapa con `lookup`:
    ```
    {
-     ???
+     from: "users",
+     localField: "ratings.userid",
+     foreignField: "id",
+     as: "user"
    }
    ```
-   Esto nos agrega el campo `user` con todos los datos del usuario, así que ahora sólo hay que seleccionar lo que tiene género femenino con otra etapa:
+   Esto no agrega el campo `user` con todos los datos del usuario, así que ahora sólo hay que seleccionar lo que tiene género femenino con otra etapa:
    ```
    {
-     ???
+     "user.gen": "F"
    }
    ```
    Y finalmente para obtener un resultado más ordenado se usa una etapa más con `project` para seleccionar los datos a mostrar:
    ```
    {
-     ???,
-     ???,
-     ???,
-     ???,
-     ???
+     _id: 0,
+     id: {$arrayElemAt: ["$user.id", 0]},
+     gen: {$arrayElemAt: ["$user.gen", 0]},
+     edad: {$arrayElemAt: ["$user.edad", 0]},
+     ocup: {$arrayElemAt: ["$user.ocup", 0]},
    }
    ```
    Obteniendo el resultado siguiente:

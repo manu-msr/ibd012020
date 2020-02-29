@@ -16,19 +16,19 @@
 
 1. Conectarse al Servidor MariaDB con los datos que has usado en el _Ejemplo-01_
    ```console
-   ml-1m $ ???
+   ml-1m $ mycli -h ec2-54-213-193-78.us-west-2.compute.amazonaws.com -u root -p root -P 3306
    mariadb 10.4.10-MariaDB-1:10.4.10+maria~bionic
    mycli 1.20.1
    Chat: https://gitter.im/dbcli/mycli
    Mail: https://groups.google.com/forum/#!forum/mycli-users
    Home: http://mycli.net
    Thanks to the contributor - Abirami P
-   (none)> ???
+   (none)> USE Minombre;
    You are now connected to database "MiNombre" as user "root"
    Time: 0.096s
    MiNombre>
    ```
-   Recuerda hacer uso de los datos de conexión proporcionados por tú Experta/o y ejecutar el comando `USE` para seleccionar tu base de datos.
+   Recuerda hacer uso de los datos de conexión proporcionados por tú Experta/o y ejecutar el comando `Use` para seleccionar tu base de datos.
 
    También puedes hacer uso de la tecla de flecha arriba para regresar al comando anteriormente escrito y modificarlo para trabajar un poco más rápido.
 
@@ -36,7 +36,7 @@
 
    Usar SQL para contar el número de registros de la tabla `movies`:
    ```sql
-   MiNombre> ???
+   MiNombre> SELECT COUNT(*) FROM movies;
    +----------+
    | COUNT(*) |
    +----------+
@@ -65,7 +65,7 @@
 
 1. Ejecutar el comando `wc` para contar el número de líneas en el archivo `movies.csv`
    ```console
-   ml-1m $ ???
+   ml-1m $ wc movies.csv
      3883  15672 163542 movies.csv
    ml-1m $
    ```
@@ -75,25 +75,26 @@
 
    Usar SQL para contar el número de registros de la tabla `ratings`:
    ```sql
-   MiNombre> ???
-   ???
-   ???
-   ???
-   ...
+   MiNombre> SELECT COUNT(*) FROM ratings;
+   +----------+
+   | COUNT(*) |
+   +----------+
+   | 1000209  |
+   +----------+
+   1 row in set
+   Time: 0.494s
    MiNombre>  
    ```
-   Se obtiene un total de ??? registros, así que ahora se va a comparar con el número de líneas que hay en el archivo `ratings.csv`
+   Se obtiene un total de 1000209 registros, así que ahora se va a comparar con el número de líneas que hay en el archivo `ratings.csv`
 
 1. Cambiarse a la _Terminal_ (en Linux o Mac) o _Git bash_ (en Windows), donde se ejecutó el anterior comando `wc`.
 
 1. Ejecutar el comando `wc` para contar el número de líneas en el archivo `ratings.csv`
    ```console
-   ml-1m $ ???
-     ???
+   ml-1m $ wc ratings.csv
+     1000209  1000209 21593504 ratings.csv
    ml-1m $
    ```
-   Con lo que se obtiene que la primer columna el valor de ??? líneas que es el mismo valor de registros importados en la tabla `ratings`.
-
-   En caso de que alguno de los valores no coincidan, es necesario realizar la importación de datos nuevamente. Consulta a tu Experta/o
+   Con lo que se obtiene que la primer columna el valor de 1000209 líneas que es el mismo valor de registros importados en la tabla `ratings`.
 
 __Misión cumplida, conocimiento de validación de datos importados adquirido y habilidad en el uso de la terminal__

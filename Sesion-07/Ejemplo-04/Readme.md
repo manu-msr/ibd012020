@@ -53,7 +53,7 @@
 
    1. Como los documentos formaban parte de un arreglo están separados por una coma, así que es necesario remplazar la cadena `},{"_id"` por la cadena `}\n{"_id"`, así que se hace uso de la herramienta de búsqueda y remplazo (en este caso del editor Atom y se habilita la opción de expresiones regulares)
 
-     ![Separando documentos](assets/separando-documentos.png
+     ![Separando documentos](assets/separando-documentos.png)
 
    1. En la parte final del archivo se eliminan los simbolos de `]}` quedando el archivo como sigue:
 
@@ -63,3 +63,5 @@
 
    ![Datos de Companet importados](assets/datos-compranet-importados.png)
    Se puede observar que se tienen 100 documentos importados.
+
+__Nota:__ La carpeta `json.por-si-acaso/` contiene el archivo ya modificado para ser importado desde MongoDB y puede ser usado en caso de que el alumno no logre ajustar el archivos correctamente.

@@ -20,15 +20,14 @@
 
 1. Conectarse al Servidor MariaDB
    ```console
-   ml-1m $ ???
+   ml-1m $ mycli -h ec2-54-213-193-78.us-west-2.compute.amazonaws.com -u root -p root -P 3306
    mariadb 10.4.10-MariaDB-1:10.4.10+maria~bionic
    mycli 1.20.1
    Chat: https://gitter.im/dbcli/mycli
    Mail: https://groups.google.com/forum/#!forum/mycli-users
    Home: http://mycli.net
    Thanks to the contributor - Abirami P
-
-   (none)> ???
+   (none)> USE Minombre;
    You are now connected to database "MiNombre" as user "root"
    Time: 0.096s
    MiNombre>
@@ -39,7 +38,7 @@
 
    En el resultado sólo se necesita el título de la película por lo que la consulta queda de la siguiente forma:
    ```sql
-   MiNombre> ???
+   MiNombre> SELECT title FROM movies ORDER BY title LIMIT 10;                     
    +-----------------------------------+
    | title                             |
    +-----------------------------------+
@@ -61,7 +60,7 @@
    ```
    Se observa que posiblemente los dos primeros registros tienen nombre inválido, posiblemente habría que descartarlos, así que la consulta se crea nuevamente quedando de la siguiente forma:
    ```sql
-   MiNombre> ???
+   MiNombre> SELECT title FROM movies WHERE title NOT IN ("$1", "'burbs") ORDER BY title LIMIT 10;
    +-----------------------------------+
    | title                             |
    +-----------------------------------+
@@ -90,9 +89,9 @@
    MiNombre> \T csv
    Changed table format to csv
    Time: 0.000s
-   MiNombre> \o ???
+   MiNombre> \o movies-title.csv
    Time: 0.000s
-   MiNombre> ???
+   MiNombre> SELECT title FROM movies WHERE title NOT IN ("$1", "'burbs") ORDER BY title;
    "title"
    "'Night Mother (1986)"
    "'Til There Was You (1997)"
@@ -130,7 +129,7 @@
    ```
    Y ejecutar el comando `head` para examinar las primeras 10 líneas del archivo:
    ```console
-   Reto-02 $ ???
+   Reto-02 $ head movies-title.csv
    "title"
    "'Night Mother (1986)"
    "'Til There Was You (1997)"

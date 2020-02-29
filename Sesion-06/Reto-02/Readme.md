@@ -22,8 +22,8 @@
    Nuevamente se hace uso de las Agregaciones y la primer etapa es para elegir los campos a mostrar con `$project` quedando el código de la siguiente forma:
    ```
    {
-     ???,
-     ???
+     titulo: 1,
+     _id: 0
    }
    ```
    Obteniendo el siguiente resultado:
@@ -34,7 +34,7 @@
    Ahora se procede a ordenarlos usando otra etapa con `$sort`, donde se ordena en base al campo `titulo` en ascendente:
    ```
    {
-     ???
+     titulo: 1
    }
    ```
    Dando el resultado:
@@ -50,7 +50,7 @@
 
    Abre una terminal (Git Bash en Windows) y cambiarse a la carpeta `Sesion-06/Reto-02/` y ejecuta el comando siguiente para validar el resultado:
    ```console
-   Reto-02 $ ???
+   Reto-02 $ less movies-titulo.csv
    titulo
    $1
    'Night Mother (1986)
